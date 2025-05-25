@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- SEO -->
+	<title>Party Animals | Online multiplayer party games</title>
+	<meta name="description" content="Party Animals is a platform for multiplayer party games where you can invite your friends and play games quickly and easily. This was made by Prozilla by using a realtime database provided by Firebase and the game engine Phaser.">
+	<meta name="keywords" content="Party Animals, Party, Animals, Platform, Gaming platform, Games, Online Games, Multiplayer, Multiplayer Games, Firebase, Realtime database, Phaser, Prozilla">
+  	<meta name="author" content="Prozilla">
+	<link rel="canonical" href="https://partyanimals.netlify.app/"/>
+	<link rel="shortcut icon" type="image/x-icon" href="media/icons/Logo128x128.png">
+	<meta name="theme-color" content="#9b59b6">
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Party Animals | Online multiplayer party games">
+	<meta property="og:site_name" content="Party Animals">
+	<meta property="og:url" content="https://partyanimals.netlify.app"/>
+	<meta property="og:description" content="Party Animals is a platform for multiplayer party games where you can invite your friends and play games quickly and easily. This was made by Prozilla by using a realtime database provided by Firebase and the game engine Phaser.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://partyanimals.netlify.app/media/icons/Logo128x128.png">
+
+	<!-- Meta -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="5pO2cto7kZrN6lcrOCpt4mEYg-uYfydI5yKvWfEbXJs"/>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+
+	<!-- Fontawesome -->
+	<script rel="preconnect" src="https://kit.fontawesome.com/241f6baf1e.js"></script>
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="show-party">
+	<div id="main">
+		<aside id="menu-buttons">
+			<div id="menu-buttons-inner">
+				<button class="icon-button" title="Home" data-menu="home-menu"><i class="fa-solid fa-house"></i></button>
+				<button class="icon-button" title="Games" data-menu="games-menu"><i class="fa-solid fa-gamepad"></i></button>
+				<button class="icon-button" title="Party" data-menu="party-menu"><i class="fa-solid fa-user-group"></i></button>
+				<button class="icon-button" title="Customization" data-menu="customization-menu"><i class="fa-solid fa-paintbrush"></i></button>
+				<!-- <button class="icon-button" title="About" data-menu="about-menu"><i class="fa-solid fa-circle-info"></i></button> -->
+				<div id="menu-buttons-indicator"></div>
+			</div>
+		</aside>
+
+		<main>
+			<h1 id="title">Party Animals</h1>
+
+			<div id="menus">
+				<!-- Home -->
+				<section id="home-menu">
+					<h1>Party Animals</h1>
+					<a id="credits" href="http://daisygames.org/" target="_blank">
+						<h2>By Daisy Games</h2>
+						<div>
+							<img src="media/icons/DaisyGamesLogo.svg">
+						</div>
+					</a>
+					<div id="home-buttons">
+						<button class="text-button" id="home-join-party">Join party</button>
+						<button class="text-button" id="home-create-party">Create party</button>
+						<div class="new-flex-row">
+							<button class="text-button" id="home-browse-games">Browse games</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- Games -->
+				<section id="games-menu">
+					<div id="games-grid">
+						<div class="game highlight-top" data-game-title="slime">
+							<img class="game-icon" src="media/games/slime/candy.svg">
+							<h2 class="game-title">Candy Rush</h2>
+						</div>
+						<div class="game highlight-top coming-soon" data-game-title="tron">
+							<div class="game-icon"></div>
+							<h2 class="game-title">Tron</h2>
+						</div>
+						<div class="game highlight-top coming-soon" data-game-title="tanks">
+							<div class="game-icon"></div>
+							<h2 class="game-title">Tanks</h2>
+						</div>
+						<div class="game highlight-top coming-soon" data-game-title="dogfight">
+							<div class="game-icon"></div>
+							<h2 class="game-title">Dogfight</h2>
+						</div>
+						<div class="game highlight-top coming-soon" data-game-title="draw-battle">
+							<div class="game-icon"></div>
+							<h2 class="game-title">Draw Battle</h2>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Party -->
+				<section id="party-menu">
+					<div id="player-list" class="highlight-top">
+						<p id="party-name">Your party</p>
+						<div id="players"></div>
+						<div id="party-options">
+							<button id="invite-players" class="text-button">Invite players</button>
+							<button id="join-party" class="text-button">Join party</button>
+							<button id="leave-party" class="text-button">Leave party</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- Customization -->
+				<section id="customization-menu">
+					<div id="player-settings">
+						<div id="character-preview">
+							<div id="character-preview-detail"></div>
+						</div>
+						<div id="player-options">
+							<span id="player-name-input">
+								<label for="player-name">Your name:</label>
+								<div>
+									<input id="player-name" maxlength="16" type="text">
+									<button class="icon-button" id="randomize-name" title="Randomize name"><i class="fa-solid fa-dice-five"></i></button>
+								</div>
+							</span>
+							<button id="player-animal" class="text-button">Change animal</button>
+							<button id="player-color" class="text-button">Change color</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- <section id="about-menu">
+					<h2>About this project</h2>
+				</section> -->
+			</div>
+		</main>
+	</div>
+
+	<div id="modal">
+		<div id="modal-inner">
+			<h2 id="modal-title" class="highlight-top">Lorem Ipsum<button id="close-modal" class="icon-button"><i class="fa-solid fa-xmark"></i></button></h2>
+			<span id="modal-body"></span>
+		</div>
+	</div>
+
+	<div id="chat" class="highlight-top">
+		<div id="chat-input-outer">
+			<input id="chat-input" type="text">
+			<button id="chat-send" class="text-button">Send</button>
+		</div>
+		<div id="chat-messages"></div>
+		<span id="chat-header">
+			<p id="chat-title">Party chat</p>
+			<button id="toggle-chat" class="icon-button"><i class="fa-solid fa-caret-down"></i></button>
+		</span>
+	</div>
+
+	<div id="loading-screen" class="overlay active">
+		<h2>Loading...</h2>
+		<div id="loading-icon"></div>
+	</div>
+
+	<div id="lost-connection-screen" class="overlay">
+		<h2>Connection lost :(</h2>
+		<button class="text-button" id="reconnect">Reconnect</button>
+	</div>
+
+	<div id="game-start-screen" class="overlay">
+		<h2 id="game-start-timer">Starting...</h2>
+		<img id="game-icon">
+		<h2 id="game-title"></h2>
+	</div>
+
+	<div id="game-end-screen" class="overlay">
+		<canvas id="confetti"></canvas>
+		<h2 id="title">Winner</h2>
+		<div class="character">
+			<div class="character-detail"></div>
+		</div>
+		<h2 id="player-name"></h2>
+	</div>
+
+	<!-- Initialize firebase  -->
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+	<script>
+		const firebaseConfig = {
+			apiKey: "AIzaSyCiPuhw3RDlmFTTCewWbByOKNZv5g3zAsQ",
+			authDomain: "party-games-d1a03.firebaseapp.com",
+			databaseURL: "https://party-games-d1a03-default-rtdb.europe-west1.firebasedatabase.app",
+			projectId: "party-games-d1a03",
+			storageBucket: "party-games-d1a03.appspot.com",
+			messagingSenderId: "645514341359",
+			appId: "1:645514341359:web:a32d7aaa1a4a5b5051e41a"
+		};
+		firebase.initializeApp(firebaseConfig);
+	</script>
+
+	<script src="js/phaser.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+	<script src="js/confetti.js"></script>
+	<script type="module" src="js/main.js"></script>
+</body>
+</html>
